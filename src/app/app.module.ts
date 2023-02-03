@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ButtonModule, CheckBoxModule, IconModule } from 'projects/md-ui-components/src/public-api';
-
+import { AccordionModule, AutoSearchModule, ButtonModule, CheckBoxModule, IconModule } from 'projects/md-ui-components/src/public-api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -12,6 +12,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    AccordionModule,
+    AutoSearchModule,
     ButtonModule,
     CheckBoxModule,
     IconModule

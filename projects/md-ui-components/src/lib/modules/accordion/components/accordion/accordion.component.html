@@ -1,0 +1,18 @@
+<div class="unwrap__head">
+    <div class="unwrap__head-content">
+        <span (click)="changeState()" class="unwrap__arr ic-hover" [@rotatedState]="rotateState">
+            <span class="icon ic-select-arr-down">
+                <svg class="icon" mdcSvg="ic-select-arr-down"></svg>
+            </span>
+        </span>
+        <span class="unwrap__title">
+            <ng-content select=".header"></ng-content>
+        </span>
+    </div>
+    <div>
+        <ng-content select=".header-right"></ng-content>
+    </div>
+</div>
+<div [@slideInOut]="value?'in':'out'">
+    <ng-content select=".body"></ng-content>
+</div>

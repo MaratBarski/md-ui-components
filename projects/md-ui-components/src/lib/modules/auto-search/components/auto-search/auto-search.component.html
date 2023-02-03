@@ -1,0 +1,9 @@
+<div class="form-search">
+    <svg width="16" height="16" class="ic-search" mdcSvg="ic-search" (click)="search()"></svg>
+    <input #searchInput autocomplete="off" name="search" type="text" placeholder="{{placeholder}}" [(ngModel)]="text"
+        type="text">
+    <span class="form-search__close" [ngClass]="{'active': isText}" (click)="clearText()">
+        <svg *ngIf="isText" width="16" height="16" class="ic-close-small" mdcSvg="ic-close-small"></svg>
+        <svg *ngIf="!isText" width="16" height="16" class="ic-close" mdcSvg="ic-close"></svg>
+    </span>
+</div>

@@ -1,0 +1,110 @@
+.pager-wrap{display: block;}
+
+.paging-container{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.paging-title{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 1.57;
+  color: #727891;
+  margin-right: 30px;
+}
+
+.paging-num{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.paging, .paging-container, .paging-item, paging-container{
+    display: flex;
+    align-items: center;
+}
+
+.paging-item{
+    cursor: pointer;
+    justify-content:center;
+}
+
+.page-next{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+.page-btn{
+    display: inline-block;
+    padding: 0 15px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #0596ff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.paging-num > .page-btn:first-child,
+.paging-num > .page-btn:last-child{
+  padding: 0;
+}
+
+.paging-num > .page-btn:first-child,
+.paging-num > .page-btn:nth-last-child(1),
+.paging-num > .page-btn:nth-last-child(2){
+  border-right: 0;
+}
+
+.paging-item:first-child {padding-left: 0;}
+.paging-num > .page-btn:nth-last-child(2){padding-right: 0;}
+
+.page-btn.disabled .icon{
+  fill: #acb2c3;
+  cursor: auto;
+}
+
+.page-btn .icon{
+  vertical-align: top;
+}
+.separator{
+    width:1px;
+    height: 0.8rem;
+    background-color: #C9CBD0;
+}
+.current{
+    color: #ACB2C3;
+    cursor: auto !important;
+    font-weight: 700;
+    text-decoration: underline;
+}
+.disabled{
+    cursor: default !important;
+}
+.page-next{
+    width:30px;
+    height: 30px;
+
+}
+.right{
+    float: right;
+}
+.left{
+    float: left;
+}
+.page-input{
+    width:50px;
+}

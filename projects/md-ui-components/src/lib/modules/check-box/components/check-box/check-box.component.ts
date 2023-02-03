@@ -14,7 +14,6 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
 @Component({
   selector: 'mdc-check-box',
   templateUrl: './check-box.component.html',
-  styleUrls: ['./check-box.component.css'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
 export class CheckBoxComponent implements ControlValueAccessor {

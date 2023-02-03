@@ -1,0 +1,23 @@
+.auto-complete-input {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.disabled {
+    opacity: 0.5;
+}
+.line {
+    border-top-width: 0px !important;
+    border-right-width: 0px !important;
+    border-left-width: 0px !important;
+    border-bottom-width: 1px !important;
+    border-bottom-style: solid;
+}
+.line:focus,
+.line:hover {
+    border-bottom-color: #0596ff !important;
+}
+.empty:focus,
+.empty:hover,
+.empty {
+    border-bottom-color: #b00 !important;
+}

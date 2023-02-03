@@ -2,10 +2,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'md-ui-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  templateUrl: './button.component.html'
 })
-export class ButtonComponent   {
+export class ButtonComponent {
 
   @Input() className = 'btn_icon';
   @Input() disabled = false;
