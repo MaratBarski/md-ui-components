@@ -1,0 +1,35 @@
+.auto-complete-input-container{
+    display: flex;
+    align-items: center;
+    width:100%;
+    //border:1px solid #ccc;
+}
+.auto-complete-dropdown{
+    cursor: pointer;
+    height: 30px;
+    width:30px;
+    //background-color: #fff;
+}
+.auto-complete-dropdown-icon{
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+}
+.auto-complete-suggestions{
+    position: absolute;
+    z-index: 102;
+    background-color: #fff;
+    overflow: auto;
+    left: 0;
+    right: 0;
+}
+.auto-complete-current{
+    background-color: #F2F3F5;
+}
+.auto-complete-input{
+    width:100%;
+    //border:0px !important
+}
+.auto-complete-input:focus{
+    outline: none;
+}
+

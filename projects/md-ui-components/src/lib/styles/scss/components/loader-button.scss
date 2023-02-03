@@ -1,0 +1,297 @@
+// /*-------------- loader-button -----------------*/
+.loader-btn,
+input[type="submit"].loader-btn,
+button.loader-btn{
+	display: inline-flex;
+	height: rem(30px);
+	min-width: 120px;
+	padding: 0;
+	background: transparent;
+	border-radius: rem(15px);
+	outline: 0;
+	font-size: 0;
+	cursor: pointer;
+	text-decoration: none;
+	box-shadow: none;
+	position: relative;
+	// overflow: hidden;
+}
+
+.loader-btn{
+	&__def{
+		display: inline-flex;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		padding: 0 20px;
+		border-radius: rem(15px);
+		background: #fff;
+		border: 1px solid $color-dark-purple;
+		@include font(normal, normal, rem(14px), rem(28px), $color-dark-purple);
+		text-align: center;
+		white-space: nowrap;
+	}
+
+
+	&:hover &__def{
+		background: rgba(83, 3, 168, 0.05);
+		color: $color-dark-purple;
+	}
+
+	&__success{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 100%;
+		padding: 0;
+		border-radius: rem(15px);
+		background: $color-green;
+		@include font(normal, 600, rem(14px), rem(30px), #fff);
+		text-align: center;
+		white-space: nowrap;
+		position: absolute;
+		@include top-center;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		overflow: hidden;
+		opacity: 0;
+		z-index: 2;
+
+		.icon{
+			flex: 0 0 13px;
+			fill: #fff;
+			max-width: 13px;
+		}
+
+		.icon:first-child{margin-right: 6px;}
+		.icon:last-child{margin-left: 6px;}
+	}
+
+	&__circle{
+		width: 100%;
+		height: 30px;
+		border-radius: rem(15px);
+		background: #e8e8e8;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		@include top-center;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		opacity: 0;
+	}
+
+	&__outer,
+  &__outer-round,
+	&__inner{
+		border-radius: rem(15px);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&__outer{
+		width: 100%;
+		height: 100%;
+		background-color: $color-dark-purple;
+		clip-path: polygon(50% 0%, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 50%, 50% 50%);
+	}
+
+  &__outer-round{
+    width: 100%;
+    height: 100%;
+    background-color: $color-dark-purple;
+    clip-path: polygon(50% 0%, 100% 0, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 50% 50%, 50% 50%);
+  }
+
+	&__inner{
+		width: calc(100% - 4px);
+		height: calc(100% - 4px);
+		background: #fff;
+	}
+
+
+	&_small &__def,
+	&_small &__success{
+		line-height: rem(24px);
+	}
+
+	&_disable &__def,
+	&_disable:hover &__def{
+		background: transparent;
+		border-color: $color-light-grey;
+		color: $color-light-grey;
+		cursor: auto;
+	}
+
+	&.active &__def{opacity: 0;}
+  // &.active &__circle{animation: circle-progress 2s linear forwards;}
+  // &.active &__outer{animation: circle-progress-line 2s linear forwards;}
+  // &.active &__success{animation: circle-progress-success 2s linear forwards;}
+
+  &.active &__circle{
+    opacity: 1;
+    animation: circle-progress 0.2s linear forwards;
+  }
+
+  &.active &__outer{
+    opacity: 1;
+    animation: circle-progress-line 2s linear 0.2s infinite forwards;
+  }
+
+  &.active &__outer-round{
+    opacity: 1;
+    animation: circle-progress-rotate 2s linear 0.2s infinite forwards;
+  }
+
+  &.active.success &__circle{opacity: 0;}
+
+  &.active.success &__success{
+    opacity: 1;
+    animation: circle-progress-success 0.2s linear forwards;
+  }
+
+}
+
+@keyframes circle-progress {
+  0% {width: 100%;}
+  100% {width: 30px;}
+}
+
+
+@keyframes circle-progress-line {
+  10% {
+    clip-path: polygon(50% 0%, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 50%, 50% 50%);
+  }
+  20% {
+    clip-path: polygon(50% 0%, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 50%, 50% 50%);
+  }
+  30% {
+    clip-path: polygon(50% 0%, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 50% 50%, 50% 50%);
+  }
+  40% {
+    clip-path: polygon(50% 0%, 100% 0, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 50% 50%, 50% 50%);
+  }
+  50% {
+    clip-path: polygon(50% 0%, 100% 0, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 50%, 50% 50%);
+  }
+  60% {
+    clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 50%, 50% 50%);
+  }
+  70% {
+    clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 100%, 0 100%, 0 100%, 50% 50%, 50% 50%);
+  }
+  80% {
+    clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 100%, 0 50%, 0 50%, 50% 50%, 50% 50%);
+  }
+  90% {
+    clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 100%, 0 0, 50% 0, 50% 50%, 50% 50%);
+  }
+  100% {
+    clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 100%, 0 0, 50% 0, 50% 50%, 50% 50%);
+  }
+}
+
+@keyframes circle-progress-rotate {
+  0% {transform: translate(-50%,-50%) rotate(0deg);}
+  100% {transform: translate(-50%,-50%) rotate(360deg);}
+}
+@keyframes circle-progress-success {
+  0% {width: 30px;}
+  100% {width: 100%;}
+}
+
+// @keyframes circle-progress {
+// 	0% {
+// 		width: 100%;
+// 		opacity: 1;
+// 	}
+// 	10% {
+// 		width: 30px;
+// 		opacity: 1;
+// 	}
+// 	90% {
+// 		width: 30px;
+// 		opacity: 1;
+// 	}
+// 	91% {
+// 		width: 30px;
+// 		opacity: 0;
+// 	}
+// 	100% {
+// 		width: 30px;
+// 		opacity: 0;
+// 	}
+// }
+
+// @keyframes circle-progress-line {
+// 	10% {
+// 		clip-path: polygon(50% 0%, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 50%, 50% 50%);
+// 	}
+// 	20% {
+// 		clip-path: polygon(50% 0%, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 50%, 50% 50%);
+// 	}
+// 	30% {
+// 		clip-path: polygon(50% 0%, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 50% 50%, 50% 50%);
+// 	}
+// 	40% {
+// 		clip-path: polygon(50% 0%, 100% 0, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 50% 50%, 50% 50%);
+// 	}
+// 	50% {
+// 		clip-path: polygon(50% 0%, 100% 0, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 50%, 50% 50%);
+// 	}
+// 	60% {
+// 		clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 50%, 50% 50%);
+// 	}
+// 	70% {
+// 		clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 100%, 0 100%, 0 100%, 50% 50%, 50% 50%);
+// 	}
+// 	80% {
+// 		clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 100%, 0 50%, 0 50%, 50% 50%, 50% 50%);
+// 	}
+// 	90% {
+// 		clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 100%, 0 0, 50% 0, 50% 50%, 50% 50%);
+// 	}
+// 	100% {
+// 		clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 100%, 0 0, 50% 0, 50% 50%, 50% 50%);
+// 	}
+// }
+
+// @keyframes circle-progress-success {
+// 	0% {
+// 		width: 30px;
+// 		opacity: 0;
+// 	}
+// 	90% {
+// 		width: 30px;
+// 		opacity: 0;
+// 	}
+// 	91% {
+// 		width: 30px;
+// 		opacity: 1;
+// 	}
+// 	100% {
+// 		width: 100%;
+// 		opacity: 1;
+// 	}
+// }
+
+
+.loader-btn_disable,
+input[type="submit"].loader-btn_disable,
+button.loader-btn_disable{
+  cursor: auto;
+}
+
+.loader-btn_small,
+input[type="submit"].loader-btn_small,
+button.loader-btn_small{
+  height: rem(25px);
+}

@@ -9,6 +9,20 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "paths": {
+      "md-ui-button": [
+        "dist/md-ui-button"
+      ],
+      "md-ui-components": [
+        "dist/md-ui-components"
+      ],
+      "md-ui-core": [
+        "dist/md-ui-core"
+      ],
+      "md-ui-table": [
+        "dist/md-ui-table"
+      ]
+    },
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,

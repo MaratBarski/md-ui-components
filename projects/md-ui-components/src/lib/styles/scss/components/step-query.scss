@@ -1,0 +1,88 @@
+/*-------------- step-query -----------------*/
+.step-query{
+	&__top{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		padding-bottom: 13px;
+		border-bottom: 1px solid $color-light-grey;
+		margin-bottom: 13px;
+	}
+
+	&__title{
+		@include font(normal, normal, rem(24px), 1.2, $color-dark-grey);
+		text-transform: uppercase;
+		margin-right: 10px;
+	}
+
+	&__text{
+		@include font(normal, normal, rem(14px), 1.2, $color-dark-grey);
+
+		.ic-external-link{vertical-align: middle;}
+	}
+
+	&__load{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: calc(100vh - 265px);
+	}
+}
+
+.step-query-label{
+	display: flex;
+	flex-wrap: wrap;
+
+	&__item{
+		@include font(normal, normal, rem(14px), 1.2, $color-grey);
+		position: relative;
+	}
+	
+	&__item:not(:last-child){margin-right: 10px;}
+
+	&__item:not(:last-child):after{
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 15px;
+		background: $color-light-grey;
+		margin-left: 10px;
+	}
+}
+
+.app{
+	margin-top: 33px;
+
+	&__text{
+		@include font(normal, normal, rem(16px), 1.2, $color-dark-grey);
+		margin-bottom: 8px;
+	}
+
+	&__or{
+		@include font(normal, normal, rem(16px), 1.2, $color-dark-grey);
+		margin: 14px 0;
+	}
+
+	.btn{padding: 0 20px;}
+}
+
+.app-list{
+	display: flex;
+	flex-wrap: wrap;
+
+	&__item{
+		width: 120px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	&__item:not(:last-child){margin-right: 36px;}
+
+	&__img{max-height: 120px;}
+
+	&__label{
+		@include font(normal, normal, rem(14px), 1.2, $color-dark-grey);
+		text-align: center;
+		margin-top: 9px;
+	}
+}

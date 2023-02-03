@@ -1,0 +1,90 @@
+/*-------------- pager -----------------*/
+.pager-wrap{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 20px;
+
+	&__title{
+		@include font(normal, normal, rem(14px), 1.57, $color-grey);
+		margin-right: 30px;
+	}
+}
+
+.pager{
+	display: flex;
+	align-items: center;
+  margin-right: 20px;
+
+	&__item{
+		min-width: 30px;
+		@include font(normal, 600, rem(16px), 1.25, $color-blue);
+		text-align: center;
+		padding: 0 15px;
+	}
+
+	&__item_dots{
+		color: $color-light-grey;
+	}
+
+  &__link{
+    color: $color-blue;
+    cursor: pointer;
+  }
+
+  &__link:hover{text-decoration: underline;}
+
+	&__item.active{
+		color: $color-light-grey;
+		font-weight: bold;
+	}
+
+	&__item:not(:last-child){
+		border-right: 1px solid #c9cbd0;
+	}
+
+	&__item:first-child{padding-left: 0;}
+	&__item:last-child{padding-right: 0;}
+
+	&__arr{
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+    cursor: pointer;
+	}
+
+	&__arr .icon{fill: $color-light-grey;}
+	&__arr.active .icon{fill: $color-blue}
+
+	&__item .ic-hover{
+		width: auto;
+		height: auto;
+	}
+}
+
+.pager-count {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &__label {
+    @include font(normal, normal, rem(14px), 1.25, $color-grey);
+    margin-right: 6px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pager{margin-right: 0;}
+  .pager-count{margin-top: 10px;}
+
+	.pager-wrap{
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		&__title{
+			margin-right: 0;
+			margin-bottom: 10px;
+		}
+	}
+}

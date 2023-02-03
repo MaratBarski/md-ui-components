@@ -1,0 +1,618 @@
+/*-------------- query-calc -----------------*/
+.query-calc-wrap{
+	.modal-window{
+		width: 1000px;
+		max-width: 90%;
+    box-shadow: 0 -9px 21px 0 rgba(128, 152, 213, 0.15), -10px 9px 21px 0 rgba(128, 152, 213, 0.15);
+
+		&__head{
+			font-size: rem(16px);
+			font-weight: 600;
+			margin-bottom: 13px;
+		}
+	}
+
+	&_small{
+		.modal-window{width: 866px;}
+	}
+}
+
+.query-calc{
+	height: calc(100% - 35px);
+	padding-top: 15px;
+	border-top: 1px solid rgba(161,173,205,.5);
+
+	&__content{min-height: 284px;}
+
+	&__btn{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 12px 25px 20px;
+		margin: 28px -25px -20px;
+		position: relative;
+		z-index: 2;
+
+		.btn{min-width: 125px;}
+	}
+
+	&__btn-group{
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+
+		.btn+.btn{margin-left: 15px;}
+	}
+
+	&__btn_shadow{box-shadow: 0 -5px 21px 0 rgba(128, 152, 213, 0.15);}
+
+	&__btn-link{
+		@include font(normal, 600, rem(14px), 1.25, $color-dark-purple);
+		cursor: pointer;
+	}
+
+	&__btn-link:hover{
+		color: $color-dark-purple;
+		text-decoration: underline;
+	}
+
+	&__main{
+		background: $color-sort-grey;
+		border-radius: 6px;
+		padding: 15px;
+	}
+
+  &__area{
+    display: flex;
+    justify-content: space-between;
+    height: 354px;
+  }
+
+  &__field-wrap{
+    width: calc(100% - 310px);
+    @include font(normal, normal, rem(14px), 1.5, #fff);
+    background: $color-dark-blue;
+    border-radius: 6px;
+    position: relative;
+
+    textarea{
+      display: block;
+      height: 100%;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 0;
+      margin: 0;
+      box-shadow: none;
+      background: transparent;
+      @include font(normal, normal, rem(14px), 1.5, #fff);
+    }
+  }
+
+  &__field{
+    height: 100%;
+    padding: 15px;
+    overflow-y: auto;
+  }
+
+	&__apply{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background: #fff;
+		box-shadow: 0px 5px 5px 0px rgba(13,30,66,0.35);
+		position: absolute;
+		right: 15px;
+		bottom: -18px;
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
+
+		.icon{
+			display: inline-block;
+			vertical-align: top;
+			width: 11px;
+			height: 8px;
+      fill: $color-dark-blue;
+      transition: all 0.2s ease 0s;
+		}
+	}
+
+  &__apply:hover{
+    background: $color-dark-grey;
+    .icon{fill: #fff;}
+  }
+
+  &__bottom{
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .select{
+    width: 300px;
+    flex: 0 0 300px;
+    margin-right: 10px;
+
+    &__search input[type="text"]{background: #fff;}
+  }
+
+  .drop-cond{
+    width: 300px;
+    flex: 0 0 300px;
+    margin-right: 10px;
+
+    &_big .drop-cond__search {width: 100%;}
+
+    &__search input[type=text]{
+      background: #fff;
+      border: 1px solid $color-light-grey;
+    }
+
+    &__search input[type=text]:focus{border-color: $color-purple;}
+    &__popup{max-width: 100%!important;}
+  }
+}
+
+.code-light-red{color: $color-light-red;}
+.code-blue{color: $color-blue;}
+.code-green{color: $color-green;}
+.code-yellow{color: $color-yellow;}
+.code-grey{color: $color-light-grey;}
+.code-red{color: $color-red;}
+
+.query-calc-top{
+	display: flex;
+	flex-wrap: wrap;
+	@include font(normal, normal, rem(14px), rem(26px), $color-dark-blue);
+	margin-bottom: 15px;
+
+	&__label{margin-right: 12px;}
+
+	&__field{
+		width: 380px;
+		margin-right: 12px;
+	}
+
+	input[type="text"]{
+		height: rem(28px);
+		width: 100%;
+		outline: none;
+		border: 1px solid $color-light-grey;
+		border-radius: 2px;
+		@include font(normal, normal, rem(14px), rem(26px), $color-dark-blue);
+		padding: 0 15px;
+		margin: 0;
+		transition: all 0.3s ease;
+	}
+
+	input[type="text"]::placeholder{
+		color: $color-grey;
+		opacity: 1;
+	}
+
+	input[type="text"]:focus{border-color: $color-purple;}
+
+	input[disabled]{
+		background: #fff;
+		color: $color-light-grey;
+	}
+
+	&__field.error input[type="text"]{border-color: $color-red;}
+
+	&__error{
+		@include font(normal, normal, rem(13px), 1.25, $color-red);
+		margin-top: 8px;
+		margin-bottom: 2px;
+	}
+}
+
+.query-calc-sample{
+	height: 160px;
+	width: 216px;
+	border: 2px solid #fff;
+	border-radius: 6px;
+	padding: 10px 12px;
+	@include font(normal, normal, rem(13px), 1.5, $color-dark-grey);
+	text-transform: uppercase;
+	position: relative;
+
+	&__content{
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	&__accent{
+		font-style: italic;
+		color: $color-green;
+		text-transform: none;
+	}
+
+	&__label{
+		@include font(normal, 600, rem(12px), 1, $color-grey);
+		text-transform: uppercase;
+		padding: 5px;
+		background: $color-sort-grey;
+		position: absolute;
+		bottom: -12px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&__empty{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		@include font(normal, normal, rem(13px), 1.25, $color-grey);
+		text-align: center;
+		text-transform: none;
+		padding: 10px;
+	}
+}
+
+.query-calc-msg{
+	display: flex;
+  padding: 8px 0 0;
+  @include font(normal, normal, rem(14px), 1.25, $color-dark-grey);
+
+	&__icon{
+		vertical-align: top;
+		flex: 0 0 16px;
+		width: 16px;
+		margin-right: 6px;
+
+		.icon{
+			max-width: 16px;
+			fill: $color-green;
+		}
+
+		.ic-success{
+			width: 16px;
+			height: 16px;
+		}
+
+		.ic-failure{
+			width: 18px;
+			height: 16px;
+		}
+	}
+
+	&_error{color: $color-red;}
+	&_error &__icon .icon{fill: $color-red;}
+
+  &_grey{color: $color-grey;}
+}
+
+.calc-func{
+  width: 300px;
+  border-radius: 6px;
+  border: 1px solid $color-light-grey;
+  padding: 6px 0;
+  overflow-y: auto;
+  font-size: rem(16px);
+
+  &__sect{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 3px;
+    margin-left: 3px;
+    vertical-align: top;
+  }
+
+  &__item{
+    display: inline-flex;
+    vertical-align: top;
+    height: rem(25px);
+    min-width: 33px;
+    @include font(normal, normal, rem(13px), rem(21px), $color-dark-blue);
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 10px;
+    background: rgba(3, 207, 163, 0.15);
+    border: 2px solid $color-green;
+    border-radius: 12.5px;
+    margin: 5px 3px;
+    position: relative;
+    background: rgba(3, 207, 163, 0.15);
+    cursor: pointer;
+
+    sub{
+      font-size: rem(7px);
+      font-weight: bold;
+      bottom: -.5em;
+    }
+
+    .tooltip{
+      display: none;
+      margin: 0 0 8px 0;
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      z-index: 2;
+
+      &_top{
+        top: 100%;
+        bottom: auto;
+        margin: 8px 0 0;
+      }
+
+      &_right{
+        @include top-center;
+        bottom: auto;
+        right: 100%;
+        left: auto;
+        margin: 0 8px 0 0;
+      }
+
+      &_left{
+        @include top-center;
+        bottom: auto;
+        left: 100%;
+        margin: 0 0 0 8px;
+      }
+
+      &_bot-center{
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+      }
+
+      &_bot-right{
+        left: auto;
+        right: 0;
+      }
+
+      &_top-right{
+        top: 100%;
+        bottom: auto;
+        left: auto;
+        right: 0;
+        margin: 8px 0 0;
+      }
+    }
+  }
+
+  &__item:hover .tooltip{display: inline-flex;}
+
+  &__item_pink{
+    border-color: #ffbfe4;
+    background: rgba(255, 191, 228, 0.15);
+  }
+
+  &__item_red{
+    border-color: $color-light-red;
+    background: rgba(255, 141, 129, 0.15);
+  }
+
+  &__item_yellow{
+    border-color: $color-yellow;
+    background: rgba(255, 189, 66, 0.15);
+  }
+
+  &__item_blue{
+    border-color: $color-blue;
+    background: rgba(5, 150, 255, 0.15);
+  }
+
+  &__item_grey{
+    border-color: $color-light-grey;
+    background: rgba(172, 178, 195, 0.15);
+    color: $color-grey;
+  }
+
+  &__item_dark-grey{
+    border-color: $color-dark-grey;
+    background: rgba(82, 87, 106, 0.15);
+    color: $color-grey;
+  }
+
+  &__item:hover{background: rgba(3, 207, 163, 0.25);}
+  &__item_pink:hover{background: rgba(255, 191, 228, 0.35);}
+  &__item_red:hover{background: rgba(255, 141, 129, 0.3);}
+  &__item_yellow:hover{background: rgba(255, 189, 66, 0.3);}
+  &__item_blue:hover{background: rgba(5, 150, 255, 0.25);}
+  &__item_grey:hover{background: rgba(172, 178, 195, 0.3);}
+  &__item_darkgrey:hover{background: rgba(82, 87, 106, 0.3);}
+}
+
+.typography-calc{
+	.modal-window-wrap{
+		display: block;
+		width: auto;
+		height: auto;
+		position: static;
+		overflow: visible;
+	}
+
+	.modal-window{margin: 0;}
+}
+
+.query-calc-cond{
+	display: flex;
+	flex-wrap: wrap;
+	//align-items: center;
+	background: rgba(242, 243, 245, 0.35);
+	border-radius: 6px;
+	border: dashed 1px $color-light-grey;
+	padding: 5px 15px;
+
+	&__text{
+		@include font(normal, normal, rem(14px), rem(30px), $color-dark-blue);
+	}
+
+	&__text,
+	&__field,
+	.tabs-page{
+		margin: 3px 6px;
+	}
+
+  .tabs-page_small{
+    margin-top: 6px;
+    margin-bottom: 5px;
+  }
+
+	&__text:first-child,
+	&__field:first-child,
+	.tabs-page:first-child{
+		margin-left: 0;
+	}
+
+	&__text:last-child,
+	&__field:last-child,
+	.tabs-page:last-child{
+		margin-right: 0;
+	}
+
+	.select{
+		width: 280px;
+		margin-top: 0;
+
+		&__search input[type="text"]{
+			border-left: 0;
+			border-right: 0;
+			border-top: 0;
+			padding: 0 30px 0 10px;
+			background: transparent;
+		}
+
+    &__search input[type="text"]::placeholder{
+      color: $color-grey;
+      opacity: 1;
+    }
+
+    &__head-arr{width: 30px;}
+		&__search-close{right: 30px;}
+	}
+}
+
+.query-calc-math{
+	position: relative;
+	margin: 3px 6px;
+
+  &__content{position: relative;}
+
+	&__title{
+		min-width: 140px;
+		height: rem(30px);
+		border: 1px solid $color-dark-blue;
+		border-radius: rem(15px);
+		padding: 0 24px;
+		@include font(normal, 600, rem(14px), rem(26px), $color-dark-blue);
+		text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+
+    .error {
+      border: 1px solid $color-red;
+    }
+	}
+
+	&__title_blue{
+		background: rgba(5, 150, 255, 0.1);
+		border-color: $color-blue;
+	}
+
+  &__title:hover{background: rgba(13, 30, 66, 0.04);}
+  &__title_blue:hover{background: rgba(5, 150, 255, 0.25);}
+
+	&__sign{font-size: rem(16px);}
+
+	&__arr{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 100%;
+		position: absolute;
+		@include top-center;
+    right: 0;
+    cursor: pointer;
+		justify-content: center;
+
+    .icon{vertical-align: top;}
+	}
+
+	&__popup{
+		width: 137px;
+		padding-top: 4px;
+		position: absolute;
+		top: 100%;
+		left: 0;
+	}
+
+	&__list{
+		display: inline-flex;
+		flex-wrap: wrap;
+		background: #fff;
+		padding: 9px;
+		border-radius: 4px;
+		border: 1px solid $color-light-grey;
+    box-shadow: -10px 9px 21px 0 rgba(128, 152, 213, 0.08);
+	}
+
+	&__item{
+		display: inline-block;
+		vertical-align: top;
+		min-width: 48px;
+		height: rem(25px);
+		border-radius: rem(13px);
+		padding: 0 10px;
+		@include font(normal, normal, rem(14px), rem(21px), $color-dark-blue);
+		text-align: center;
+		background: rgba(5, 150, 255, 0.1);
+		border: 2px solid $color-blue;
+		margin: 4px 5px;
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
+	}
+
+  &__item:hover{background: rgba(5, 150, 255, 0.25);}
+}
+
+.query-calc-res{
+	min-height: 48px;
+	border-radius: 6px;
+	border: 1px solid $color-light-grey;
+	padding: 14px 22px;
+	@include font(normal, normal, rem(14px), 1.25, $color-dark-blue);
+	margin-top: 15px;
+
+	&__sep{margin: 0 10px;}
+}
+
+@media (max-width: 1199px) {
+  .query-calc-wrap{
+    .modal-window{width: 830px;}
+  }
+}
+
+
+@media (max-width: 767px) {
+  .query-calc{
+    &__area{
+      display: block;
+      height: auto;
+    }
+
+    &__field-wrap{width: 100%;}
+
+    &__bottom{
+      display: block;
+      margin-top: 25px;
+    }
+
+    .select{
+      max-width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  .calc-func{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

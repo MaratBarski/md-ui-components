@@ -1,0 +1,193 @@
+/*-------------- tabs-page -----------------*/
+.tabs-page{
+	display: flex;
+
+	&__item{
+		display: inline-block;
+		height: rem(30px);
+		min-width: 109px;
+		border: 1px solid $color-dark-purple;
+		@include font(normal, 600, rem(14px), rem(28px), $color-dark-purple);
+		text-align: center;
+		padding: 0 16px;
+		white-space: nowrap;
+		position: relative;
+    cursor: pointer;
+	}
+
+	&__item.active{
+		background: $color-dark-purple;
+		color: #fff;
+		cursor: auto;
+	}
+
+	&__item:hover{
+		color: $color-dark-purple;
+		text-decoration: none;
+		background: rgba(83, 3, 168, 0.05);
+	}
+
+	&__item.active:hover{
+		color: #fff;
+		border-color: #3f0280;
+		background: #3f0280;
+	}
+
+	&__item.disable,
+	&__item.disable:hover{
+		border-color: $color-light-grey;
+		color: $color-light-grey;
+		background: transparent;
+		cursor: auto;
+	}
+
+	&__item.active.disable,
+	&__item.active.disable:hover{
+		background: $color-light-grey;
+		color: #fff;
+		cursor: auto;
+	}
+
+	&__item:first-child{
+		border-top-left-radius: 15px;
+		border-bottom-left-radius: 15px;
+	}
+	&__item:last-child{
+		border-top-right-radius: 15px;
+		border-bottom-right-radius: 15px;
+	}
+
+	&__item:not(:last-child){
+		border-right: 0;
+	}
+
+	&__item > .icon{
+		vertical-align: middle;
+    margin-top: -3px;
+	}
+
+  &__item > .ic-next-to-page{
+    width: 19px;
+    fill: $color-dark-purple;
+    margin-right: 5px;
+  }
+
+	&__item.active > .icon{
+		fill: #fff;
+	}
+
+	&__item:hover .tabs-popup-wrap,
+	&__item:hover .tabs-popup-more-wrap{
+		display: inline-block;
+		color: $color-dark-purple;
+	}
+
+  &_small &__item{
+    height: rem(25px);
+    min-width: 10px;
+    line-height: rem(23px);
+  }
+
+  &_small &__item:first-child{
+    border-top-left-radius: 12.5px;
+    border-bottom-left-radius: 12.5px;
+  }
+
+  &_small &__item:last-child{
+    border-top-right-radius: 12.5px;
+    border-bottom-right-radius: 12.5px;
+  }
+}
+
+.tabs-popup-wrap{
+  display: none;
+  padding-top: 6px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 11;
+
+  &.active{
+    display: inline-block;
+  }
+}
+
+.tabs-popup{
+  display: inline-block;
+  width: 100%;
+  background: #fff;
+  text-align: left;
+  border: 1px solid $color-light-grey;
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: -10px 9px 21px 0 rgba(128, 152, 213, 0.08);
+  overflow: hidden;
+
+	&__head{
+		@include font(normal, normal, rem(14px), 1.71, $color-dark-grey);
+		padding-bottom: 8px;
+		border-bottom: 1px solid $color-light-grey;
+	}
+
+	&__content{
+		padding: 10px 0;
+	}
+
+	&__btn{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+    .btn,
+    button.btn,
+    input[type="submit"].btn{
+      font-weight: 600;
+    }
+	}
+}
+
+.tabs-popup-more-wrap{
+	width: 100%;
+	padding-top: 6px;
+	position: absolute;
+	display: none;
+	top: 100%;
+	right: 0;
+	z-index: 11;
+
+	&.active{
+		display: inline-block;
+	}
+}
+
+.tabs-popup-more{
+	display: inline-block;
+	width: 100%;
+	background: #fff;
+	text-align: left;
+	border: 1px solid $color-light-grey;
+	border-radius: 4px;
+	box-shadow: -10px 9px 21px 0 rgba(128, 152, 213, 0.08);
+	overflow: hidden;
+
+	&__item{
+		padding: 0 20px;
+		@include font(normal, normal, rem(14px), rem(30px), $color-dark-blue);
+		cursor: pointer;
+	}
+
+	&__item:hover,
+	&__item.active{
+		background: $color-sort-grey;
+		text-decoration: none;
+	}
+}
+
+@media (max-width: 767px) {
+	.tabs-page{
+		&__item{
+			min-width: 44px;
+			padding: 0 10px;
+		}
+	}
+}

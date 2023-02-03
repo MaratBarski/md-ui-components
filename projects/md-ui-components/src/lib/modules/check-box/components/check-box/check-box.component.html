@@ -1,0 +1,12 @@
+<div class="input-check {{css}}"
+    [ngClass]="{'input-check_indeterminate': isTristate && value == null, 'input-check_all': additionalState}">
+    <input [disabled]="isDisabled" type="checkbox" [(ngModel)]="value">
+    <div (click)="changeSelect()" class="input-check__label">
+        <span class="input-check__mark">
+            <svg [hidden]="!value" class="icon ic-check" mdcSvg="ic-check"></svg>
+            <svg [hidden]="value" class="icon ic-check" mdcSvg="ic-uncheck"></svg>
+        </span>
+        <ng-content></ng-content>
+        <span [ngStyle]="{'white-space':whiteSpace}" *ngIf="text" class="input-check__text">{{text}}</span>
+    </div>
+</div>

@@ -1,0 +1,193 @@
+/*-------------- tooltip -----------------*/
+.tooltip-temp{
+	background-color:red;
+}
+.tooltipnew{
+	z-index: 99999;
+	display: inline-block;
+	background: $color-dark-blue;
+	padding: 4px 8px;
+	margin: 4px;
+	position: absolute;
+	@include font(normal, normal, 12px, 1.57, #fff);
+
+	&::after{
+		content: '';
+		display: inline-block;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 5px 6px 0 6px;
+		border-color: $color-dark-blue transparent transparent transparent;
+		position: absolute;
+		top: 100%;
+	}
+
+  &_top::after{
+    left: 10px;
+	}
+
+  &_topleft::after{
+    right: 10px  !important;
+	}
+
+	&_right::after{
+		border-width: 6px 5px 6px 0;
+		border-color: transparent $color-dark-blue transparent transparent;
+		@include top-center;
+		left: auto;
+		right: 100%;
+	}
+
+	&_left::after{
+		border-width: 6px 0 6px 5px;
+		border-color: transparent transparent transparent $color-dark-blue;
+		@include top-center;
+		left: 100%;
+	}
+
+	&_bottom::after{
+		border-width: 0 6px 5px 6px;
+		border-color: transparent transparent $color-dark-blue transparent;
+		top: auto;
+    left: 10px;
+		bottom: 100%;
+	}
+}
+
+/*-------------- tooltip -----------------*/
+.tooltip{
+  display: inline-table;
+  max-width: 350px;
+  background: $color-dark-blue;
+  margin: 4px;
+  position: relative;
+  @include font(normal, normal, rem(12px), 1.57, #fff);
+
+  &__content{
+    display: inline-block;
+    padding: 4px 8px;
+  }
+
+  &::after{
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 6px 0 6px;
+    border-color: $color-dark-blue transparent transparent transparent;
+    position: absolute;
+    top: 100%;
+    left: 10px;
+  }
+
+  &_left::after{
+    border-width: 6px 5px 6px 0;
+    border-color: transparent $color-dark-blue transparent transparent;
+    top: 8px;
+    left: auto;
+    right: 100%;
+  }
+
+  &_right::after{
+    border-width: 6px 0 6px 5px;
+    border-color: transparent transparent transparent $color-dark-blue;
+    top: 8px;
+    left: 100%;
+  }
+
+  &_top::after{
+    border-width: 0 6px 5px 6px;
+    border-color: transparent transparent $color-dark-blue transparent;
+    top: auto;
+    bottom: 100%;
+  }
+
+  &_top-right::after{
+    border-width: 0 6px 5px 6px;
+    border-color: transparent transparent $color-dark-blue transparent;
+    top: auto;
+    bottom: 100%;
+    left: auto;
+    right: 10px;
+  }
+
+  &_red{background: $color-red;}
+  &_red::after{border-color: $color-red transparent transparent transparent;}
+  &_red.tooltip_left::after{border-color: transparent $color-red transparent transparent;}
+  &_red.tooltip_right::after{border-color: transparent transparent transparent $color-red;}
+  &_red.tooltip_top::after{border-color: transparent transparent $color-red transparent;}
+
+  &__more{margin-top: 5px;}
+
+  &__more .link-site{
+    display: inline-flex;
+    align-items: center;
+
+    .icon{
+      width: 17px;
+      height: 17px;
+      fill: #0596ff;
+      margin-left: 5px;
+      margin-top: 2px;
+    }
+  }
+
+  p:last-child{margin-bottom: 0;}
+
+  &__title{margin-bottom: 3px;}
+  &__title_red{color: $color-red;}
+  &__title_light-red{color: $color-light-red;}
+
+  &_icon{display: inline-flex;}
+
+  &_icon::after{
+    left: 5px;
+    border-color: $color-blue rgba(0,0,0,0) rgba(0,0,0,0);
+  }
+
+  &_icon.tooltip_left::after{
+    border-color: rgba(0,0,0,0) $color-blue rgba(0,0,0,0) rgba(0,0,0,0);
+    left: auto;
+  }
+
+  &_icon.tooltip_right::after{
+    border-color: transparent transparent transparent $color-dark-blue;
+    left: 100%;
+  }
+
+  &_icon.tooltip_top::after{
+    border-color: transparent transparent $color-blue transparent;
+    left: 5px;
+  }
+
+  &_icon.tooltip_bot-center::after{
+    border-color: $color-dark-blue rgba(0,0,0,0) rgba(0,0,0,0);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+
+  &_icon.tooltip_bot-right::after{
+    border-color: $color-dark-blue rgba(0,0,0,0) rgba(0,0,0,0);
+    left: auto;
+    right: 5px;
+  }
+
+  &__icon{
+    background: $color-blue;
+    font-size: 14px;
+    padding: 0 8px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .tooltip{
+    width: 250px;
+  }
+}

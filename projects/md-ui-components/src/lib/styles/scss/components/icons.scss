@@ -1,0 +1,79 @@
+/*-------------- icons -----------------*/
+.icon{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  max-width: 100%;
+  max-height: 100%;
+  fill: $color-dark-blue;
+
+  &.ic-hover:hover,
+  &.ic-light-grey{
+    fill: $color-light-grey;
+  }
+
+  &.ic-grey{fill: $color-grey;}
+  &.ic-dark-grey{fill: $color-dark-grey;}
+  &.ic-dark-blue{fill: $color-dark-blue;}
+
+  &.ic-stroke{
+    stroke: $color-dark-blue;
+    fill: transparent;
+  }
+
+  &.ic-business-warning{fill: $color-dark-purple;}
+  &.ic-failure, &.ic-error{fill: $color-red;}
+  &.ic-warning{fill: $color-yellow;}
+  &.ic-success, &.ic-running{fill: $color-green;}
+
+  &.ic-hamburger{width: 27px; height: 18px;}
+  &.ic-hamburger-arrow{width: 42px; height: 18px;}
+
+  &.ic-nancy{fill: #0596ff;}
+  &.ic-lillie{fill: #ff9789;}
+  &.ic-christian{fill: #acb2c3;}
+  &.ic-gabriel{fill: #ffbd42;}
+  &.ic-craig{fill: #03cfa3;}
+
+  &.ic-reference{fill: $color-red;}
+
+  &.ic-info-disabled{fill: $color-light-grey;}
+  &.ic-info-failed{fill: $color-yellow;}
+  &.ic-info-complete{fill: $color-dark-blue;}
+
+  &.less-or-equal,
+  &.more-or-equal{
+    fill: #7003E1;
+  }
+}
+
+.ic-hover{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  cursor: pointer;
+
+  &::before{
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    min-width: 30px;
+    min-height: 30px;
+    background: rgba(172, 178, 195, 0.25);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  &:hover::before{
+    opacity: 1;
+  }
+}

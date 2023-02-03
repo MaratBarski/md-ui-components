@@ -1,0 +1,88 @@
+.category-list{
+	margin-top: 24px;
+	margin-bottom: 20px;
+
+	&__content,
+	&__list{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	&__label{
+		@include font(normal, normal, rem(14px), 1.4, $color-dark-grey);
+		letter-spacing: 0.3px;
+		margin-right: 6px;
+	}
+
+	// &__label,
+	// &__item{
+	// 	margin-bottom: 10px;
+	// }
+
+	&__item,
+	&__item a{
+		@include font(normal, normal, rem(14px), 1.4, $color-dark-grey);
+		text-transform: uppercase;
+	}
+
+	&__item:not(:last-child){
+		margin-right: 28px;
+	}
+
+	&__item{position: relative;}
+
+	&__item::after{
+		content: '';
+		display: inline-block;
+		width: calc(100% + 15px);
+		height: 2px;
+		background: $color-light-grey;
+		position: absolute;
+		bottom: -5px;
+		left: 50%;
+		transform: translateX(-50%);
+		opacity: 0;
+		transition: all 0.2s ease;
+	}
+
+	&__item:hover::after, &__item.active::after{opacity: 1;}
+	&__item.active::after{background: $color-dark-purple;}
+	&__item:hover a, &__item.active a{text-decoration: none;}
+	&__item.active,	&__item.active a{font-weight: 600;}
+
+  &__link{cursor: pointer;}
+
+	& + .graph-wrap{margin-top: 15px;}
+
+	&__field{
+		@include font(normal, 600, rem(14px), 1.4, $color-dark-grey);
+
+		.input-number{margin-right: 6px;}
+	}
+}
+
+.category-list-num{
+	margin-top: 24px;
+	margin-bottom: 20px;
+
+	&__content{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	&__label{
+		@include font(normal, 600, rem(14px), 1.4, $color-dark-grey);
+		letter-spacing: 0.3px;
+		margin-right: 6px;
+	}
+
+	& + .graph-wrap{margin-top: 15px;}
+
+	&__field{
+		@include font(normal, 600, rem(14px), 1.4, $color-dark-grey);
+
+		.input-number{margin-right: 6px;}
+	}
+}

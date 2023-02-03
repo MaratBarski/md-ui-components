@@ -1,0 +1,87 @@
+/*-------------- steps-area -----------------*/
+.steps-area{
+	background: #fff;
+	border-radius: 2px;
+	box-shadow: 0 2px 4px 0 #dbe4f9;
+
+	&__content{
+		display: flex;
+		flex-direction: column;
+		height: calc(100vh - 228px);
+		overflow-y: auto;
+	}
+
+	.steps-white{
+		&__item{padding: 0 17px 0 33px;}
+	}
+
+	&__text{
+		@include font(normal, normal, rem(14px), 1.2, $color-dark-grey);
+		padding: 23px 45px 16px;
+	}
+
+	&__table-wrap{
+		height: 100%;
+		padding-top: 33px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	&__table{
+		height: 100%;
+		overflow-y: auto;
+		border-top: 1px solid rgba(161,173,205,.5);
+
+		.admin-table{
+			position: static;
+      box-shadow: none;
+
+			tr th.admin-table__item{
+				background: #fff;
+				vertical-align: middle;
+			}
+
+			&__item:first-child{padding-left: 45px;}
+			&__item:last-child{padding-right: 45px;}
+
+			&__head .admin-table__item{
+				height: 0;
+				min-height: 0;
+				padding-top: 0;
+				padding-bottom: 0;
+				border-bottom: 0;
+				position: static;
+			}
+
+			&__title{
+				display: block;
+				position: absolute;
+				top: 0;
+			}
+
+			.w-md-30 .admin-table__title{width: 8vw;}
+			.w-md-40 .admin-table__title{width: 12vw;}
+		}
+	}
+}
+
+.open-sidebar{
+  .steps-area{
+    &__table{
+      .admin-table{
+        .w-md-30 .admin-table__title{width: 6.5vw;}
+        .w-md-40 .admin-table__title{width: 9vw;}
+      }
+    }
+  }
+}
+
+@media (max-width: 1899px) {
+	.steps-area{
+		&__table{
+			.admin-table{
+				.w-md-30 .admin-table__title{width: 9vw;}
+			}
+		}
+	}
+}

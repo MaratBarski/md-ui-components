@@ -1,0 +1,481 @@
+.header{
+	width: 100%;
+	margin-left: auto;
+	background-image: linear-gradient(88deg, $color-dark-blue, $color-dark-purple);
+	transition: all 0.3s ease;
+
+	&__content{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 52px;
+		padding: 11px 0;
+		position: relative;
+		z-index: 101;
+	}
+
+	&__info,
+	&__action{
+		display: flex;
+		align-items: center;
+	}
+
+  &__info .hamburger{
+    position: relative;
+
+    .tooltip{
+      display: none;
+      width: auto;
+      max-width: none;
+      white-space: nowrap;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 8px 0 0;
+
+      &::after{
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+    }
+
+    &:hover .tooltip{display: inline-block;}
+  }
+
+	&__logo{
+		max-width: 109px;
+		line-height: 1;
+		position: relative;
+	}
+
+	&__company{
+		@include font(normal, normal, rem(16px), 1.25, #fff);
+		position: relative;
+	}
+
+	&__company .icon{
+		width: 22px;
+		height: 22px;
+		fill: #fff;
+		vertical-align: middle;
+		margin-right: 7px;
+	}
+
+	&__company-name{
+		display: inline-block;
+		vertical-align: middle;
+		margin-top: 2px;
+	}
+
+	&__profile{
+		display: inline-block;
+    vertical-align: middle;
+		position: relative;
+		margin-left: 33px;
+
+    .tooltip{
+      display: none;
+      white-space: nowrap;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 8px 0 0;
+
+      &::after{
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+    }
+
+    &:hover .tooltip{display: inline-block;}
+	}
+
+	&__profile-icon{
+		display: inline-block;
+    vertical-align: middle;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-image:  url(/assets/img/ic-user-avatar.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		cursor: pointer;
+	}
+
+  &__logout{
+    margin-left: 12px;
+    position: relative;
+    cursor: pointer;
+
+    .icon{
+      vertical-align: middle;
+      fill: #fff;
+    }
+
+    .tooltip{
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 8px 0 0;
+
+      &::after{
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+    }
+
+    &:hover .tooltip{display: inline-block;}
+  }
+
+  &__select-res{
+    @include font(normal, normal, rem(14px), 1.25, #fff);
+    margin-right: 14px;
+  }
+
+	.hamburger{
+		position: relative;
+		margin-right: 30px;
+
+		.icon{fill: #fff;}
+	}
+
+	.ic-pager-arr-left{
+		display: none;
+		fill: #fff;
+		position: absolute;
+		@include top-center;
+		left: -24px;
+		margin-top: 3px;
+	}
+
+	.hamburger.active .ic-pager-arr-left{
+		display: inline-block;
+	}
+
+	.select{
+		width: auto;
+    margin-right: 15px;
+
+		&__head{
+			height: rem(30px);
+			width: auto;
+			border: 0;
+			color: #fff;
+			padding: 0 15px 0 0;
+			line-height: rem(30px);
+		}
+
+		&__head::after{
+			content: '';
+			display: inline-block;
+			width: 100%;
+			height: 1px;
+			background: #fff;
+			position: absolute;
+			left: 0;
+			bottom: 3px;
+		}
+
+    &__head-arr{
+      .icon{fill: #fff;}
+    }
+
+		&__head-arr{
+			width: 30px;
+			right: -10px;
+		}
+	}
+
+  &__version{
+    @include font(normal, normal, rem(14px), 1.2, #fff);
+    margin-right: 10px;
+  }
+
+  &__logo{
+    display: inline-flex;
+    align-items: center;
+
+    img{margin-right: 12px;}
+  }
+
+  &__slogan{
+    @include font(normal, normal, rem(14px), 1.2, #fff);
+    white-space: nowrap;
+  }
+}
+
+.profile-popup{
+	display: none;
+	min-width: 170px;
+	background: #fff;
+	border: 1px solid $color-light-grey;
+	border-radius: 4px;
+	box-shadow: -10px 9px 21px 0 rgba(128, 152, 213, 0.08);
+	position: absolute;
+	top: calc(100% + 14px);
+	right: 0;
+	z-index: 2;
+
+	&.active{
+		display: inline-block;
+	}
+
+	&__item{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 2px 15px;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	&__item:hover{background: $color-soft-blue; text-decoration: none;}
+
+	&__item:first-child{
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+	}
+
+	&__item:last-child{
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+
+	.icon{
+		width: 18px;
+		height: 18px;
+		vertical-align: middle;
+	}
+
+	&__text{
+		width: calc(100% - 30px);
+		@include font(normal, normal, rem(14px), 1.2, $color-dark-blue);
+	}
+}
+
+.header-notice{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	position: relative;
+
+  .tooltip{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 8px 0 0;
+
+    &::after{
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+  }
+
+  &:hover .tooltip{display: inline-block;}
+
+	&__popup{
+		display: none;
+		width: 390px;
+		border-radius: 4px;
+		box-shadow: 0 -9px 21px 0 rgba(128, 152, 213, 0.15), -10px 9px 21px 0 rgba(128, 152, 213, 0.15);
+		background: linear-gradient(to right, $color-dark-blue 0%, $color-dark-purple 100%);
+		position: absolute;
+		top: 100%;
+		right: 0;
+		margin-top: 14px;
+		padding: 10px;
+	}
+
+	&__popup.active{display: inline-block;}
+
+	&__top{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 12px;
+		margin-top: 2px;
+	}
+
+	&__head{
+		@include font(normal, 600, rem(14px), 1.2, $color-sort-grey);
+		text-transform: uppercase;
+	}
+
+	&__link{
+		@include font(normal, normal, rem(13px), 1.2, #fff);
+	}
+
+	&__link:hover{color: #fff;}
+
+	&__content{
+		max-height: 492px;
+		overflow-y: auto;
+		margin-bottom: -10px;
+	}
+}
+
+.header-notice-empty{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 498px;
+	margin: 0 -10px -10px;
+	border-radius: 0 0 6px 6px;
+	background: #fff;
+	text-align: center;
+
+	&__title{
+		@include font(normal, 600, rem(16px), 1.2, $color-grey);
+	}
+
+	&__text{
+		@include font(normal, normal, rem(14px), 1.2, $color-grey);
+		margin-top: 14px;
+	}
+
+	&__img{
+		margin-top: 72px;
+	}
+}
+
+.header-notice-item{
+	background: #fff;
+	border-radius: 4px;
+	margin-bottom: 6px;
+	padding: 10px 14px;
+
+	&__top{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__text{
+		@include font(normal, normal, rem(12px), 1.42, $color-dark-grey);
+		margin-top: 2px;
+	}
+
+	&__bottom{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 8px;
+	}
+
+	&__link{
+		@include font(normal, normal, rem(12px), 1.2, $color-blue);
+		cursor: pointer;
+	}
+
+	&__link:hover{text-decoration: underline;}
+
+	&__date{
+		@include font(normal, normal, rem(12px), 1.2, $color-grey);
+	}
+
+	&__progress{
+		display: none;
+		margin-top: 9px;
+		padding-top: 4px;
+		border-top: 1px solid rgba(172, 178, 195, 0.5);
+
+		.load-doc__text,
+		.load-doc__link{
+			font-size: rem(12px);
+		}
+	}
+
+	&__progress.open{display: block;}
+
+	&__top:hover .header-notice-status__content{display: none;}
+	&__top:hover .header-notice-status__close{display: inline-block;}
+}
+
+.header-notice-head{
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+  max-width: calc(100% - 80px);
+
+	&__icon{
+    flex: 0 0 30px;
+		width: 30px;
+		margin-right: 4px;
+		margin-left: -3px;
+	}
+
+	&__text{
+		@include font(normal, 600, rem(14px), 1.2, $color-dark-grey);
+    max-width: calc(100% - 34px);
+	}
+}
+
+.header-notice-status{
+	@include font(normal, 600, rem(12px), 1.2, $color-dark-grey);
+	position: relative;
+
+	.icon{
+		max-width: 16px;
+		max-height: 16px;
+		vertical-align: middle;
+		margin-right: 5px;
+	}
+
+	&__circle{
+		display: inline-block;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: $color-green;
+		margin-right: 5px;
+	}
+
+	&__circle_red{background: $color-red;}
+
+	&__close{
+		width: 18px;
+		height: 18px;
+		display: none;
+		position: absolute;
+		@include top-center;
+		right: 0;
+		text-align: right;
+		cursor: pointer;
+
+		.icon{
+			width: 18px;
+			height: 18px;
+			margin: 0;
+		}
+	}
+}
+
+@media (max-width: 991px) {
+	.header{
+		&__info{justify-content: flex-end;}
+	}
+}
+
+@media (max-width: 767px) {
+	.header{
+		&__profile{margin-left: 25px;}
+	}
+}
+
+@media (max-width: 420px) {
+	.header{
+		.hamburger{margin: 0 10px 0 30px;}
+	}
+}

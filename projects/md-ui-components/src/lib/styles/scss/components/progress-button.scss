@@ -1,0 +1,149 @@
+// /*-------------- progress-button -----------------*/
+.progress-btn,
+input[type="submit"].progress-btn,
+button.progress-btn{
+	display: inline-flex;
+	height: rem(30px);
+	min-width: 120px;
+	padding: 0;
+	background: transparent;
+	border-radius: rem(15px);
+	outline: 0;
+	font-size: 0;
+	cursor: pointer;
+	text-decoration: none;
+	box-shadow: none;
+	position: relative;
+	overflow: hidden;
+}
+
+.progress-btn{
+	&__text{
+		display: inline-flex;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		padding: 0 40px;
+		border-radius: rem(15px);
+		background: $color-dark-purple;
+		border: 1px solid $color-dark-purple;
+		@include font(normal, 400, rem(14px), rem(28px), #fff);
+		text-align: center;
+		white-space: nowrap;
+    transition: opacity 0s ease 0.2s;
+	}
+
+	&__line{
+		opacity: 0;
+		width: 100%;
+		height: 5px;
+		background: #d8d8d8;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&__line::after{
+		content: '';
+		display: block;
+		width: 0;
+		height: 100%;
+		background: $color-green;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: all 0.7s ease 0s;
+	}
+
+	&:hover &__text{
+		background: #3f0280;
+		border-color: #3f0280;
+		color: #fff;
+		text-decoration: none;
+	}
+
+  &__success{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 100%;
+    padding: 0;
+    border-radius: rem(15px);
+    background: $color-green;
+    @include font(normal, 600, rem(14px), rem(30px), #fff);
+    text-align: center;
+    white-space: nowrap;
+    position: absolute;
+    @include top-center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    opacity: 0;
+    z-index: 2;
+
+    .icon{
+      flex: 0 0 13px;
+      fill: #fff;
+      max-width: 13px;
+    }
+
+    .icon:first-child{margin-right: 6px;}
+    .icon:last-child{margin-left: 6px;}
+  }
+
+	&_border &__text{
+		background: transparent;
+		font-weight: 600;
+		color: $color-dark-purple;
+	}
+
+	&_border:hover &__text{
+		background: rgba(83, 3, 168, 0.05);
+		color: $color-dark-purple;
+	}
+
+  &_small &__text,
+  &_small &__success{
+    line-height: rem(24px);
+  }
+
+	&_disable &__text,
+	&_disable:hover &__text{
+		background: $color-light-grey;
+		border-color: $color-light-grey;
+		cursor: auto;
+	}
+
+	&_border.progress-btn_disable &__text,
+	&_border.progress-btn_disable:hover &__text{
+		background: transparent;
+		border-color: $color-light-grey;
+		color: $color-light-grey;
+		cursor: auto;
+	}
+
+	&.active &__line{opacity: 1;}
+	&.active &__line::after{width: 100%;}
+
+  &.active.success &__line::after{
+    width: 100%;
+    transition: none;
+  }
+
+  &.active.success &__success{
+    opacity: 1;
+    animation: circle-progress-success 0.2s linear forwards;
+  }
+
+  &.active.success &__text{opacity: 0;}
+}
+
+.progress-btn_small,
+input[type="submit"].progress-btn_small,
+button.progress-btn_small{
+	height: rem(25px);
+}
